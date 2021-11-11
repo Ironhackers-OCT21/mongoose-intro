@@ -47,8 +47,9 @@ mongoose.connect('mongodb://localhost:27017/ironhack')
         // Update
         // StudentModel.findByIdAndUpdate(id, {})
         // StudentModel.updateMany()
-        
-        return StudentModel.updateOne({name:'Joanne'}, {country: 'Austria'})
+
+        // Update does not validate , so you need to st an extra flag `runValidators` to true for that
+        return StudentModel.updateOne({name:'Joanne'}, {country: 'Austria'}, {runValidators: true})
 
     })
     .then((updatedDoc) => {
